@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="250" viewBox="0 0 840 250" role="img" aria-label="~/contributions-per-year">
+  <title>~/contributions-per-year</title>
+  <style>
+    .fade { opacity: 0; animation: fade 0.6s ease-out forwards; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) { .fade, .bar { animation: none !important; opacity: 1 !important; } }
+  </style>
+  <rect x="0.5" y="0.5" width="839" height="249" rx="16" fill="#FFFBF8" stroke="#F1D9CF"/>
+  <text x="28" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#C8264A">~/contributions-per-year</text>
+  <text x="812" y="40" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">public + private</text>
+<line x1="28" y1="206.5" x2="812" y2="206.5" stroke="#F1D9CF"/>
+  <g>
+    <title>2021: 1 contributions</title>
+    <path class="bar" style="transform-origin:93.33333333333333px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0s both"
+      d="M61.33333333333333,206 V206 Q61.33333333333333,202 65.33333333333333,202 H121.33333333333333 Q125.33333333333333,202 125.33333333333333,206 V206 Z" fill="#C8264A"/>
+    <text class="fade" style="animation-delay:0.5s" x="93.33333333333333" y="194" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">1</text>
+    <text x="93.33333333333333" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2021</text>
+  </g>
+  <g>
+    <title>2022: 87 contributions</title>
+    <path class="bar" style="transform-origin:224px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.1s both"
+      d="M192,206 V200.2835051546392 Q192,196.2835051546392 196,196.2835051546392 H252 Q256,196.2835051546392 256,200.2835051546392 V206 Z" fill="#C8264A"/>
+    <text class="fade" style="animation-delay:0.6s" x="224" y="188.2835051546392" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">87</text>
+    <text x="224" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2022</text>
+  </g>
+  <g>
+    <title>2023: 2 contributions</title>
+    <path class="bar" style="transform-origin:354.66666666666663px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.2s both"
+      d="M322.66666666666663,206 V206 Q322.66666666666663,202 326.66666666666663,202 H382.66666666666663 Q386.66666666666663,202 386.66666666666663,206 V206 Z" fill="#C8264A"/>
+    <text class="fade" style="animation-delay:0.7s" x="354.66666666666663" y="194" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">2</text>
+    <text x="354.66666666666663" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2023</text>
+  </g>
+  <g>
+    <title>2024: 142 contributions</title>
+    <path class="bar" style="transform-origin:485.3333333333333px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.30000000000000004s both"
+      d="M453.3333333333333,206 V194.1408934707904 Q453.3333333333333,190.1408934707904 457.3333333333333,190.1408934707904 H513.3333333333333 Q517.3333333333333,190.1408934707904 517.3333333333333,194.1408934707904 V206 Z" fill="#C8264A"/>
+    <text class="fade" style="animation-delay:0.8s" x="485.3333333333333" y="182.1408934707904" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">142</text>
+    <text x="485.3333333333333" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2024</text>
+  </g>
+  <g>
+    <title>2025: 727 contributions</title>
+    <path class="bar" style="transform-origin:616px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.4s both"
+      d="M584,206 V128.80584192439864 Q584,124.80584192439862 588,124.80584192439862 H644 Q648,124.80584192439862 648,128.80584192439864 V206 Z" fill="#C8264A"/>
+    <text class="fade" style="animation-delay:0.9s" x="616" y="116.80584192439862" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">727</text>
+    <text x="616" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2025</text>
+  </g>
+  <g>
+    <title>2026: 1,164 contributions</title>
+    <path class="bar" style="transform-origin:746.6666666666666px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.5s both"
+      d="M714.6666666666666,206 V80 Q714.6666666666666,76 718.6666666666666,76 H774.6666666666666 Q778.6666666666666,76 778.6666666666666,80 V206 Z" fill="#D9772B"/>
+    <text class="fade" style="animation-delay:1s" x="746.6666666666666" y="68" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#2B1119">1,164</text>
+    <text x="746.6666666666666" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7D5B66">2026 ·ytd</text>
+  </g>
+</svg>

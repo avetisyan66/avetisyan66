@@ -1,0 +1,49 @@
+name: Refresh profile cards
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/refresh-cards.yml"
+      - "scripts/generate-cards.mjs"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The built-in token is enough: private work shows up as bare counts in the contribution
+      # calendar, so no personal token or org access is needed.
+      - name: Generate cards
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/generate-cards.mjs
+
+      - name: Commit refreshed cards
+        run: |
+          git add -- assets/cards
+          if git diff --cached --quiet; then
+            echo "Cards unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh profile cards"
+          git pull --rebase origin main
+          git push origin HEAD:main
