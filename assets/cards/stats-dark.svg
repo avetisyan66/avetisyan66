@@ -3,55 +3,51 @@
   <style>
     .fade { opacity: 0; animation: fade 0.6s ease-out forwards; }
     @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-    @media (prefers-reduced-motion: reduce) { .fade, .bar { animation: none !important; opacity: 1 !important; } }
+    @media (prefers-reduced-motion: reduce) { .fade { animation: none !important; opacity: 1 !important; } }
   </style>
-  <rect x="0.5" y="0.5" width="839" height="229" rx="16" fill="#1C0F16" stroke="#3A1F2B"/>
-  <text x="28" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#F0476B">~/lifetime-on-github</text>
-  <text x="812" y="40" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">updated 2026-09-25</text>
+  <rect x="0.5" y="0.5" width="839" height="229" rx="16" fill="#16130D" stroke="#352D1D"/>
+  <text x="28" y="40" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#FFD23F">~/lifetime-on-github</text>
+  <text x="812" y="40" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">updated 2026-09-25</text>
 
   <g class="fade">
-    <text x="28" y="118" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="#F6E7EC">2,129</text>
-    <text x="30" y="146" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#B89AA6">lifetime contributions</text>
-    <text x="30" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#6E5260">public + private · since 2021</text>
-    <circle cx="36" cy="196" r="5" fill="#F0476B"/>
-    <circle cx="52" cy="196" r="5" fill="#F2994A"/>
-    <text x="66" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">shipping from Yerevan</text>
+    <text x="28" y="118" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="#FBF4E4">2,123</text>
+    <text x="30" y="146" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#B5A88C">lifetime contributions</text>
+    <text x="30" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#6B604A">public + private · since 2021</text>
   </g>
   <g class="fade" style="animation-delay:0.15s">
-    <rect x="300" y="64" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="300" y="78" width="3" height="36" rx="1.5" fill="#F0476B"/>
-    <text x="316" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">518</text>
-    <text x="316" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">active days</text>
+    <rect x="300" y="64" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="300" y="78" width="3" height="36" rx="1.5" fill="#FFD23F"/>
+    <text x="316" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">542</text>
+    <text x="316" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">active days</text>
   </g>
   <g class="fade" style="animation-delay:0.22999999999999998s">
-    <rect x="476" y="64" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="476" y="78" width="3" height="36" rx="1.5" fill="#F0476B"/>
-    <text x="492" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">26<tspan font-size="12" font-weight="400" fill="#B89AA6"> days</tspan></text>
-    <text x="492" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">longest streak</text>
+    <rect x="476" y="64" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="476" y="78" width="3" height="36" rx="1.5" fill="#FFD23F"/>
+    <text x="492" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">34<tspan font-size="12" font-weight="400" fill="#B5A88C"> days</tspan></text>
+    <text x="492" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">longest streak</text>
   </g>
   <g class="fade" style="animation-delay:0.31s">
-    <rect x="652" y="64" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="652" y="78" width="3" height="36" rx="1.5" fill="#F2994A"/>
-    <text x="668" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">26<tspan font-size="12" font-weight="400" fill="#B89AA6"> days</tspan></text>
-    <text x="668" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">current streak</text>
+    <rect x="652" y="64" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="652" y="78" width="3" height="36" rx="1.5" fill="#F7A541"/>
+    <text x="668" y="96" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">26<tspan font-size="12" font-weight="400" fill="#B5A88C"> days</tspan></text>
+    <text x="668" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">current streak</text>
   </g>
   <g class="fade" style="animation-delay:0.39s">
-    <rect x="300" y="140" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="300" y="154" width="3" height="36" rx="1.5" fill="#F2994A"/>
-    <text x="316" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">4.1</text>
-    <text x="316" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">per active day</text>
+    <rect x="300" y="140" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="300" y="154" width="3" height="36" rx="1.5" fill="#F7A541"/>
+    <text x="316" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">3.9</text>
+    <text x="316" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">per active day</text>
   </g>
   <g class="fade" style="animation-delay:0.47s">
-    <rect x="476" y="140" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="476" y="154" width="3" height="36" rx="1.5" fill="#F2994A"/>
-    <text x="492" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">1,170</text>
-    <text x="492" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">best year (2026)</text>
+    <rect x="476" y="140" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="476" y="154" width="3" height="36" rx="1.5" fill="#F7A541"/>
+    <text x="492" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">1,164</text>
+    <text x="492" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">best year (2026)</text>
   </g>
   <g class="fade" style="animation-delay:0.55s">
-    <rect x="652" y="140" width="164" height="64" rx="10" fill="none" stroke="#3A1F2B"/>
-    <rect x="652" y="154" width="3" height="36" rx="1.5" fill="#F2994A"/>
-    <text x="668" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#F6E7EC">17</text>
-    <text x="668" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">busiest day</text>
+    <rect x="652" y="140" width="164" height="64" rx="10" fill="none" stroke="#352D1D"/>
+    <rect x="652" y="154" width="3" height="36" rx="1.5" fill="#F7A541"/>
+    <text x="668" y="172" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF4E4">17</text>
+    <text x="668" y="190" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B5A88C">busiest day</text>
   </g>
 </svg>

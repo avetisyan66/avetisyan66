@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Builds the profile cards straight from the GitHub GraphQL API — no third-party card services.
-// Writes assets/cards/{stats,years}-{dark,light}.svg. On any API failure it exits non-zero
+// Writes assets/cards/{intro,stats}-{dark,light}.svg plus the link buttons. On any API failure it exits non-zero
 // before touching disk, so the last good cards stay in place.
 // Everything here comes from the contribution calendar, which includes private work as bare
 // counts (profile setting "Include private contributions"), so any token works — no org access needed.
@@ -15,22 +15,22 @@ const OUT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "assets", "c
 
 const THEMES = {
   dark: {
-    surface: "#1C0F16",
-    stroke: "#3A1F2B",
-    ink: "#F6E7EC",
-    muted: "#B89AA6",
-    faint: "#6E5260",
-    seed: "#F0476B",
-    apricot: "#F2994A",
+    surface: "#16130D",
+    stroke: "#352D1D",
+    ink: "#FBF4E4",
+    muted: "#B5A88C",
+    faint: "#6B604A",
+    yellow: "#FFD23F",
+    orange: "#F7A541",
   },
   light: {
-    surface: "#FFFBF8",
-    stroke: "#F1D9CF",
-    ink: "#2B1119",
-    muted: "#7D5B66",
-    faint: "#C9AEB6",
-    seed: "#C8264A",
-    apricot: "#D9772B",
+    surface: "#FFFCF2",
+    stroke: "#EFE2BF",
+    ink: "#2A2210",
+    muted: "#76674A",
+    faint: "#C8BA96",
+    yellow: "#A87400",
+    orange: "#C96A12",
   },
 };
 
@@ -148,11 +148,10 @@ function frame({ width, height, theme, title, subtitle, body }) {
   <style>
     .fade { opacity: 0; animation: fade 0.6s ease-out forwards; }
     @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-    @media (prefers-reduced-motion: reduce) { .fade, .bar { animation: none !important; opacity: 1 !important; } }
+    @media (prefers-reduced-motion: reduce) { .fade { animation: none !important; opacity: 1 !important; } }
   </style>
   <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="16" fill="${theme.surface}" stroke="${theme.stroke}"/>
-  <text x="28" y="40" font-family="${MONO}" font-size="15" font-weight="700" fill="${theme.seed}">${escapeXml(title)}</text>
+  <text x="28" y="40" font-family="${MONO}" font-size="15" font-weight="700" fill="${theme.yellow}">${escapeXml(title)}</text>
   <text x="${width - 28}" y="40" text-anchor="end" font-family="${MONO}" font-size="12" fill="${theme.muted}">${escapeXml(subtitle)}</text>
 ${body}
 </svg>
@@ -180,16 +179,13 @@ function renderStats(stats, theme) {
     <text x="28" y="118" font-family="${FONT}" font-size="56" font-weight="800" fill="${theme.ink}">${formatNumber(stats.contributions)}</text>
     <text x="30" y="146" font-family="${MONO}" font-size="13" fill="${theme.muted}">lifetime contributions</text>
     <text x="30" y="166" font-family="${MONO}" font-size="12" fill="${theme.faint}">public + private · since ${stats.joined.getUTCFullYear()}</text>
-    <circle cx="36" cy="196" r="5" fill="${theme.seed}"/>
-    <circle cx="52" cy="196" r="5" fill="${theme.apricot}"/>
-    <text x="66" y="200" font-family="${MONO}" font-size="12" fill="${theme.muted}">shipping from Yerevan</text>
   </g>`;
 
   const grid = tiles
     .map((tile, index) => {
       const x = gridX + (index % columns) * (tileWidth + 12);
       const y = 64 + Math.floor(index / columns) * (tileHeight + 12);
-      const accent = index < 2 ? theme.seed : theme.apricot;
+      const accent = index < 2 ? theme.yellow : theme.orange;
       return `
   <g class="fade" style="animation-delay:${0.15 + index * 0.08}s">
     <rect x="${x}" y="${y}" width="${tileWidth}" height="${tileHeight}" rx="10" fill="none" stroke="${theme.stroke}"/>
@@ -210,53 +206,15 @@ function renderStats(stats, theme) {
   });
 }
 
-function renderYears(stats, theme) {
-  const width = 840;
-  const height = 250;
-  const plot = { left: 28, right: width - 28, top: 76, bottom: 206 };
-  const peak = Math.max(...stats.years.map((year) => year.contributions), 1);
-  const slot = (plot.right - plot.left) / stats.years.length;
-  const barWidth = Math.min(64, slot * 0.5);
-  const currentYear = new Date().getUTCFullYear();
-
-  const bars = stats.years
-    .map((year, index) => {
-      const barHeight = Math.max(4, ((plot.bottom - plot.top) * year.contributions) / peak);
-      const x = plot.left + slot * index + (slot - barWidth) / 2;
-      const y = plot.bottom - barHeight;
-      const center = x + barWidth / 2;
-      const fill = year.year === currentYear ? theme.apricot : theme.seed;
-      return `
-  <g>
-    <title>${year.year}: ${formatNumber(year.contributions)} contributions</title>
-    <path class="bar" style="transform-origin:${center}px ${plot.bottom}px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) ${index * 0.1}s both"
-      d="M${x},${plot.bottom} V${y + 4} Q${x},${y} ${x + 4},${y} H${x + barWidth - 4} Q${x + barWidth},${y} ${x + barWidth},${y + 4} V${plot.bottom} Z" fill="${fill}"/>
-    <text class="fade" style="animation-delay:${0.5 + index * 0.1}s" x="${center}" y="${y - 8}" text-anchor="middle" font-family="${FONT}" font-size="13" font-weight="700" fill="${theme.ink}">${formatNumber(year.contributions)}</text>
-    <text x="${center}" y="${plot.bottom + 22}" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${theme.muted}">${year.year}${year.year === currentYear ? " ·ytd" : ""}</text>
-  </g>`;
-    })
-    .join("");
-
-  const baseline = `<line x1="${plot.left}" y1="${plot.bottom + 0.5}" x2="${plot.right}" y2="${plot.bottom + 0.5}" stroke="${theme.stroke}"/>`;
-
-  return frame({
-    width,
-    height,
-    theme,
-    title: "~/contributions-per-year",
-    subtitle: "public + private",
-    body: baseline + bars,
-  });
-}
-
 const INTRO_LINES = [
   [["// ani.ts — hi, glad you're here", "muted"]],
-  [["const ", "seed"], ["ani", "ink"], [" = {", "muted"]],
-  [["  role", "ink"], [": ", "muted"], ['"JavaScript / TypeScript engineer"', "apricot"], [",", "muted"]],
-  [["  stack", "ink"], [": [", "muted"], ['"React Native"', "apricot"], [", ", "muted"], ['"React"', "apricot"], [", ", "muted"], ['"Next.js"', "apricot"], [", ", "muted"], ['"Node"', "apricot"], [", ", "muted"], ['"GraphQL"', "apricot"], ["],", "muted"]],
-  [["  based", "ink"], [": ", "muted"], ['"Yerevan, Armenia"', "apricot"], [",", "muted"]],
-  [["  loves", "ink"], [": ", "muted"], ['"scalable web & mobile apps"', "apricot"], [",", "muted"]],
-  [["  fuel", "ink"], [": ", "muted"], ['"apricots & coffee"', "apricot"], [",", "muted"]],
+  [["const ", "orange"], ["ani", "ink"], [" = {", "muted"]],
+  [["  role", "ink"], [": ", "muted"], ['"JavaScript / TypeScript engineer"', "yellow"], [",", "muted"]],
+  [["  stack", "ink"], [": [", "muted"], ['"React Native"', "yellow"], [", ", "muted"], ['"React"', "yellow"], [", ", "muted"], ['"Next.js"', "yellow"], [", ", "muted"], ['"Node"', "yellow"], [", ", "muted"], ['"GraphQL"', "yellow"], ["],", "muted"]],
+  [["  based", "ink"], [": ", "muted"], ['"Yerevan, Armenia"', "yellow"], [",", "muted"]],
+  [["  loves", "ink"], [": ", "muted"], ['"scalable web & mobile apps"', "yellow"], [",", "muted"]],
+  [["  fuel", "ink"], [": ", "muted"], ['"pineapples & coffee"', "yellow"], [",", "muted"]],
+  [["  motto", "ink"], [": ", "muted"], ['"Work hard ~ Party harder"', "yellow"], [",", "muted"]],
   [["};", "muted"]],
 ];
 
@@ -290,13 +248,13 @@ function renderIntro(theme) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="Ani Avetisyan — JavaScript / TypeScript engineer from Yerevan, Armenia. React Native, React, Next.js, Node, GraphQL.">
   <title>Ani Avetisyan — JavaScript / TypeScript engineer from Yerevan, Armenia</title>
   <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="16" fill="${theme.surface}" stroke="${theme.stroke}"/>
-  <circle cx="30" cy="28" r="6" fill="${theme.seed}"/>
-  <circle cx="50" cy="28" r="6" fill="${theme.apricot}"/>
+  <circle cx="30" cy="28" r="6" fill="${theme.yellow}"/>
+  <circle cx="50" cy="28" r="6" fill="${theme.orange}"/>
   <circle cx="70" cy="28" r="6" fill="${theme.faint}"/>
   <text x="${width / 2}" y="32" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${theme.muted}">~/avetisyan66/ani.ts</text>
   <line x1="0" y1="50.5" x2="${width}" y2="50.5" stroke="${theme.stroke}"/>
 ${lines}
-  <rect x="${cursorX}" y="${lastY - 14}" width="9" height="18" rx="1" fill="${theme.seed}" opacity="0">
+  <rect x="${cursorX}" y="${lastY - 14}" width="9" height="18" rx="1" fill="${theme.yellow}" opacity="0">
     <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.01;0.5;0.51" dur="1s" begin="${startAt.toFixed(2)}s" repeatCount="indefinite"/>
   </rect>
 </svg>
@@ -312,13 +270,13 @@ function discreteValues(length, charWidth) {
 }
 
 const BUTTONS = [
-  { name: "portfolio", label: "avetisyan66.github.io", caption: "portfolio", fill: "#D12E53", ink: "#FFFFFF", icon: "globe" },
-  { name: "linkedin", label: "in/avetisyan66", caption: "linkedin", fill: "#E88A3C", ink: "#2B1119", icon: "in" },
+  { name: "portfolio", label: "avetisyan66.github.io", caption: "portfolio", fill: "#FFD23F", ink: "#2A2210", icon: "globe" },
+  { name: "linkedin", label: "in/avetisyan66", caption: "linkedin", fill: "#F7A541", ink: "#2A2210", icon: "in" },
 ];
 
 const ICONS = {
   globe: (ink) => `<g fill="none" stroke="${ink}" stroke-width="1.6"><circle cx="28" cy="24" r="9"/><ellipse cx="28" cy="24" rx="4" ry="9"/><line x1="19" y1="24" x2="37" y2="24"/></g>`,
-  in: (ink) => `<rect x="19" y="15" width="18" height="18" rx="4" fill="${ink}"/><text x="28" y="29" text-anchor="middle" font-family="${FONT}" font-size="12" font-weight="800" fill="#E88A3C">in</text>`,
+  in: (ink, fill) => `<rect x="19" y="15" width="18" height="18" rx="4" fill="${ink}"/><text x="28" y="29" text-anchor="middle" font-family="${FONT}" font-size="12" font-weight="800" fill="${fill}">in</text>`,
 };
 
 function renderButton(button) {
@@ -326,7 +284,7 @@ function renderButton(button) {
   const height = 48;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${button.caption}: ${button.label}">
   <rect width="${width}" height="${height}" rx="24" fill="${button.fill}"/>
-  ${ICONS[button.icon](button.ink)}
+  ${ICONS[button.icon](button.ink, button.fill)}
   <text x="48" y="21" font-family="${MONO}" font-size="10" letter-spacing="1.5" fill="${button.ink}" opacity="0.75">${button.caption.toUpperCase()}</text>
   <text x="48" y="36" font-family="${FONT}" font-size="14" font-weight="700" fill="${button.ink}">${button.label} ↗</text>
 </svg>
@@ -340,7 +298,6 @@ async function main() {
     ...Object.entries(THEMES).flatMap(([mode, theme]) => [
       [`intro-${mode}.svg`, renderIntro(theme)],
       [`stats-${mode}.svg`, renderStats(stats, theme)],
-      [`years-${mode}.svg`, renderYears(stats, theme)],
     ]),
     ...BUTTONS.map((button) => [`${button.name}.svg`, renderButton(button)]),
   ];
