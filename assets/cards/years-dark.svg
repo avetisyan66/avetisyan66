@@ -20,8 +20,8 @@
   <g>
     <title>2022: 87 contributions</title>
     <path class="bar" style="transform-origin:224px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.1s both"
-      d="M192,206 V200.2835051546392 Q192,196.2835051546392 196,196.2835051546392 H252 Q256,196.2835051546392 256,200.2835051546392 V206 Z" fill="#F0476B"/>
-    <text class="fade" style="animation-delay:0.6s" x="224" y="188.2835051546392" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">87</text>
+      d="M192,206 V200.33333333333334 Q192,196.33333333333334 196,196.33333333333334 H252 Q256,196.33333333333334 256,200.33333333333334 V206 Z" fill="#F0476B"/>
+    <text class="fade" style="animation-delay:0.6s" x="224" y="188.33333333333334" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">87</text>
     <text x="224" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">2022</text>
   </g>
   <g>
@@ -34,22 +34,22 @@
   <g>
     <title>2024: 142 contributions</title>
     <path class="bar" style="transform-origin:485.3333333333333px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.30000000000000004s both"
-      d="M453.3333333333333,206 V194.1408934707904 Q453.3333333333333,190.1408934707904 457.3333333333333,190.1408934707904 H513.3333333333333 Q517.3333333333333,190.1408934707904 517.3333333333333,194.1408934707904 V206 Z" fill="#F0476B"/>
-    <text class="fade" style="animation-delay:0.8s" x="485.3333333333333" y="182.1408934707904" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">142</text>
+      d="M453.3333333333333,206 V194.22222222222223 Q453.3333333333333,190.22222222222223 457.3333333333333,190.22222222222223 H513.3333333333333 Q517.3333333333333,190.22222222222223 517.3333333333333,194.22222222222223 V206 Z" fill="#F0476B"/>
+    <text class="fade" style="animation-delay:0.8s" x="485.3333333333333" y="182.22222222222223" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">142</text>
     <text x="485.3333333333333" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">2024</text>
   </g>
   <g>
     <title>2025: 727 contributions</title>
     <path class="bar" style="transform-origin:616px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.4s both"
-      d="M584,206 V128.80584192439864 Q584,124.80584192439862 588,124.80584192439862 H644 Q648,124.80584192439862 648,128.80584192439864 V206 Z" fill="#F0476B"/>
-    <text class="fade" style="animation-delay:0.9s" x="616" y="116.80584192439862" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">727</text>
+      d="M584,206 V129.22222222222223 Q584,125.22222222222223 588,125.22222222222223 H644 Q648,125.22222222222223 648,129.22222222222223 V206 Z" fill="#F0476B"/>
+    <text class="fade" style="animation-delay:0.9s" x="616" y="117.22222222222223" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">727</text>
     <text x="616" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">2025</text>
   </g>
   <g>
-    <title>2026: 1,164 contributions</title>
+    <title>2026: 1,170 contributions</title>
     <path class="bar" style="transform-origin:746.6666666666666px 206px;animation:grow 0.9s cubic-bezier(.2,.8,.2,1) 0.5s both"
       d="M714.6666666666666,206 V80 Q714.6666666666666,76 718.6666666666666,76 H774.6666666666666 Q778.6666666666666,76 778.6666666666666,80 V206 Z" fill="#F2994A"/>
-    <text class="fade" style="animation-delay:1s" x="746.6666666666666" y="68" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">1,164</text>
+    <text class="fade" style="animation-delay:1s" x="746.6666666666666" y="68" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F6E7EC">1,170</text>
     <text x="746.6666666666666" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#B89AA6">2026 ·ytd</text>
   </g>
 </svg>
